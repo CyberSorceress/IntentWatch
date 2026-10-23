@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.InsecureBank" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#E11D48</item>
+    </style>
+</resources>

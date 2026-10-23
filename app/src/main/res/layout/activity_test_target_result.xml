@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_main"
+    android:padding="20dp">
+
+    <!-- Header Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/bg_card"
+        app:cardElevation="2dp"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_target_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Controlled Deep-Link Target"
+                android:textColor="@color/accent_cyan"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_target_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status: Active"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Inspection Details Card -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="@color/bg_card"
+        app:cardElevation="2dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INCOMING INTENT URI"
+                    android:textColor="@color/accent_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_received_uri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No URI received"
+                    android:textColor="@color/text_code"
+                    android:textSize="14sp"
+                    android:background="@color/bg_input"
+                    android:padding="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SECURITY AUDIT ASSESSMENT"
+                    android:textColor="@color/accent_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_audit_assessment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Processing analysis..."
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXTRACTED PARAMETERS"
+                    android:textColor="@color/accent_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_extracted_params"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="None"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:background="@color/bg_input"
+                    android:padding="12dp"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Return button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_close_target"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Return to IntentWatch"
+        android:backgroundTint="@color/accent_teal"
+        android:textColor="@color/bg_main"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IntentWatch</string>
+    <string name="app_subtitle">Android Deep-Link Hijacking &amp; Intent Security Analyzer</string>
+    <string name="course_title">Course: Android Application Development (24CYS404)</string>
+    <string name="faculty_name">Faculty: Dr. S. Udhayakumar, Associate Professor, Cyber Security</string>
+    <string name="project_focus">Focus: Custom URI Scheme Inspection, Deep-Link Hijacking Risk Analysis, Intent Redirection Testing &amp; Security Audit Reporting</string>
+
+    <!-- Navigation Titles -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_scanner">Scanner</string>
+    <string name="nav_conflicts">Conflicts</string>
+    <string name="nav_test_lab">Test Lab</string>
+    <string name="nav_findings">Findings</string>
+    <string name="nav_reports">Reports</string>
+    <string name="nav_settings">About</string>
+
+    <!-- Dashboard -->
+    <string name="btn_start_scan">Start Full Audit Scan</string>
+    <string name="btn_import_apk">Import APK for Analysis</string>
+    <string name="title_kpi_handlers">Discovered Handlers</string>
+    <string name="title_kpi_schemes">Distinct Schemes</string>
+    <string name="title_kpi_conflicts">Scheme Collisions</string>
+    <string name="title_kpi_exported">Exported Targets</string>
+    <string name="title_recent_findings">Recent Security Findings</string>
+    <string name="title_recent_scans">Audit Scan History</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">Deep-Link &amp; Intent-Filter Scanner</string>
+    <string name="scanner_subtitle">Enumerate installed apps and unpack APK manifests for deep-link entrypoints</string>
+    <string name="search_hint">Search apps, schemes, hosts...</string>
+    <string name="filter_all">All Schemes</string>
+    <string name="filter_custom">Custom Schemes</string>
+    <string name="filter_http">HTTP / HTTPS</string>
+    <string name="filter_exported">Exported Only</string>
+
+    <!-- Conflicts -->
+    <string name="conflicts_title">Scheme Conflicts &amp; Hijacking Ambiguity</string>
+    <string name="conflicts_subtitle">Detect overlapping URI handlers and potential intent hijacking risks</string>
+
+    <!-- Test Lab -->
+    <string name="testlab_title">Deep-Link Fuzzing &amp; Redirection Lab</string>
+    <string name="testlab_subtitle">Generate structured test payloads, verify resolver behavior, and assess intent safety</string>
+    <string name="btn_safe_query">Safe Resolve (No Launch)</string>
+    <string name="btn_execute_test">Launch Test Intent</string>
+    <string name="btn_fuzz_presets">Load Fuzzing Presets</string>
+
+    <!-- Findings -->
+    <string name="findings_title">Security Audit Findings</string>
+    <string name="findings_subtitle">Evidence-backed vulnerability assessments and remediation tracker</string>
+
+    <!-- Reports -->
+    <string name="reports_title">Audit Report Generator</string>
+    <string name="reports_subtitle">Export comprehensive technical reports in JSON and multi-page PDF format</string>
+    <string name="btn_export_json">Export JSON Report</string>
+    <string name="btn_export_pdf">Export PDF Report</string>
+    <string name="btn_share_report">Share Audit Report</string>
+
+    <!-- Generic Status -->
+    <string name="status_scanning">Analyzing package intent filters...</string>
+    <string name="status_idle">Ready for security audit.</string>
+    <string name="no_data_found">No entries matching the criteria.</string>
+</resources>

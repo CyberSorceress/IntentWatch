@@ -1,0 +1,4 @@
+// Top-level build file for IntentWatch - Android Deep-Link Hijacking & Intent Security Analyzer
+plugins {
+    id 'com.android.application' version '8.2.2' apply false
+}

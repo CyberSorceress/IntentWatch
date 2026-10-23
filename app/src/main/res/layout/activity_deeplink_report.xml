@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Alias layout for activity_deeplink_report.xml as specified in prompt -->
+<include layout="@layout/fragment_reports" />

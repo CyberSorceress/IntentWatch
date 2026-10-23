@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.InsecureBank">
+
+        <!-- Main Launcher -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Vulnerability 1: Competing Scheme Hijacking Collision with IntentWatch -->
+        <activity
+            android:name=".InsecureAuthActivity"
+            android:exported="true"
+            android:label="Insecure Bank Hijacker">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="intentwatch-test"
+                    android:host="vulnerable" />
+            </intent-filter>
+        </activity>
+
+        <!-- Vulnerability 2: Unprotected Custom Scheme with Wildcard Path & Open Redirect -->
+        <activity
+            android:name=".UnvalidatedRedirectActivity"
+            android:exported="true"
+            android:label="BankPay Transfer Gateway">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="bankpay"
+                    android:host="transfer" />
+                <data
+                    android:scheme="bankpay"
+                    android:host="open" />
+            </intent-filter>
+        </activity>
+
+        <!-- Vulnerability 3: Web App Link Missing autoVerify (Phishing / Interception Risk) -->
+        <activity
+            android:name=".UnverifiedAppLinksActivity"
+            android:exported="true"
+            android:label="Bank Domain Handler">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="https"
+                    android:host="bank.example.com" />
+            </intent-filter>
+        </activity>
+
+        <!-- Vulnerability 4: Exported Sensitive Debug Console without Permission Restriction -->
+        <activity
+            android:name=".DebugConsoleActivity"
+            android:exported="true"
+            android:label="Administrative Debug Console">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="myapp"
+                    android:host="debug" />
+                <data
+                    android:scheme="debug"
+                    android:host="execute" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

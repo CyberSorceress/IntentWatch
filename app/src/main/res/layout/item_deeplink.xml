@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@color/bg_card"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_app_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Application Name"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_risk_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SCORE 85"
+                android:textColor="@color/severity_high"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_badge_high"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_package_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="com.example.app"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/tv_uri_pattern"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="myapp://host/path"
+            android:textColor="@color/text_code"
+            android:textSize="13sp"
+            android:background="@color/bg_input"
+            android:padding="8dp"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/tv_activity_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=".MainActivity"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"
+                android:ellipsize="middle"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tv_exported_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EXPORTED"
+                android:textColor="@color/severity_moderate"
+                android:textSize="10sp"
+                android:background="@drawable/bg_badge_moderate"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="1dp"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/tv_source_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INSTALLED"
+                android:textColor="@color/severity_info"
+                android:textSize="10sp"
+                android:background="@drawable/bg_badge_info"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="1dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

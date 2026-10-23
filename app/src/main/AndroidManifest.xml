@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Query all packages for deep-link audit and intent collision discovery on development testbeds -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesCondition" />
+
+    <!-- Explicit Android 11+ Package Visibility Queries -->
+    <queries>
+        <!-- Standard Web View Schemes -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="http" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+        <!-- Controlled Test Target Schemes -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="intentwatch-test" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="intentwatch-insecure" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_shield"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_shield"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.IntentWatch">
+
+        <!-- Primary Application Entry Point -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Sandboxed Safe WebView Preview Activity -->
+        <activity
+            android:name=".ui.webview.SafeWebViewActivity"
+            android:exported="false"
+            android:label="Isolated WebView Sandbox" />
+
+        <!-- Controlled Test Target 1: Vulnerable Deep-Link Receiver -->
+        <activity
+            android:name=".testtarget.VulnerableDeepLinkActivity"
+            android:exported="true"
+            android:label="Controlled Vulnerable Target">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="intentwatch-test"
+                    android:host="vulnerable" />
+                <data
+                    android:scheme="intentwatch-insecure"
+                    android:host="open" />
+            </intent-filter>
+        </activity>
+
+        <!-- Controlled Test Target 2: Secure Deep-Link Receiver with Validation -->
+        <activity
+            android:name=".testtarget.SecureDeepLinkActivity"
+            android:exported="true"
+            android:label="Controlled Secure Target">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="intentwatch-test"
+                    android:host="secure" />
+                <data
+                    android:scheme="https"
+                    android:host="intentwatch.security"
+                    android:pathPrefix="/verify" />
+            </intent-filter>
+        </activity>
+
+        <!-- Controlled Test Target 3: Competing Scheme Collision Target -->
+        <activity
+            android:name=".testtarget.CompetingTargetActivity"
+            android:exported="true"
+            android:label="Competing Scheme Interceptor Target">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="intentwatch-test"
+                    android:host="vulnerable" />
+            </intent-filter>
+        </activity>
+
+        <!-- FileProvider for Sharing Exported JSON and Multi-Page PDF Reports -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.intentwatch.security.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

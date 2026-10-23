@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_main">
+
+    <!-- Top Sandbox Header -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/bg_card"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WebView Security Sandbox"
+                android:textColor="@color/accent_cyan"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_sandbox_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Policy: JavaScript Disabled | External Navigation Guard Active"
+                android:textColor="@color/severity_moderate"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/tv_current_target_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Target: "
+                android:textColor="@color/text_code"
+                android:textSize="12sp"
+                android:background="@color/bg_input"
+                android:padding="8dp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tv_blocked_events_log"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Security Logs: None"
+                android:textColor="@color/severity_critical"
+                android:textSize="12sp"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Isolated WebView Container -->
+    <WebView
+        android:id="@+id/webview_sandbox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Action Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bg_card"
+        android:padding="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_close_webview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Exit Sandbox"
+            android:backgroundTint="@color/accent_teal"
+            android:textColor="@color/bg_main" />
+    </LinearLayout>
+
+</LinearLayout>

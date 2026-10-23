@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardElevation="2dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/testlab_title"
+                    android:textColor="@color/accent_cyan"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/testlab_subtitle"
+                    android:textColor="@color/text_muted"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp" />
+
+                <!-- Target Input Field -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TARGET DEEP-LINK URI"
+                    android:textColor="@color/accent_teal"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+
+                <EditText
+                    android:id="@+id/et_test_uri"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="intentwatch-test://vulnerable?redirect_url=https://attacker-controlled.site&amp;action=view"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:background="@color/bg_input"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginTop="4dp" />
+
+                <!-- Test Preset Selector Spinner -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SECURITY TEST CASE PRESET"
+                    android:textColor="@color/accent_teal"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_fuzz_presets"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/bg_input"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/tv_preset_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Applies baseline verification."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="6dp" />
+
+                <!-- Action Buttons Grid -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_safe_resolve"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Safe Resolve"
+                        android:backgroundTint="@color/accent_teal"
+                        android:textColor="@color/bg_main"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="4dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_launch_intent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Launch Intent"
+                        android:backgroundTint="@color/severity_high"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_open_webview_sandbox"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Preview in Sandbox WebView"
+                    android:textColor="@color/accent_cyan"
+                    app:strokeColor="@color/accent_cyan"
+                    android:layout_marginTop="6dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Current Execution Outcome Panel -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_latest_outcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardElevation="2dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OBSERVABLE TEST OUTCOME"
+                    android:textColor="@color/accent_cyan"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_latest_outcome_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Resolution: Single Match"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:layout_marginTop="6dp" />
+
+                <TextView
+                    android:id="@+id/tv_latest_targets_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Target: com.intentwatch.security/..."
+                    android:textColor="@color/text_code"
+                    android:textSize="11sp"
+                    android:background="@color/bg_input"
+                    android:padding="8dp"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Execution History -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Execution History"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_test_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false" />
+
+        <TextView
+            android:id="@+id/tv_empty_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No tests executed yet. Select a preset and tap 'Safe Resolve'."
+            android:textColor="@color/text_muted"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:padding="20dp" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

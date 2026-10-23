@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/bg_card"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Safe Execution Confirmation"
+        android:textColor="@color/accent_cyan"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Review generated Intent attributes before dispatching to the Android system."
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INTENT URI"
+        android:textColor="@color/accent_teal"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/tv_dialog_uri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="intentwatch-test://vulnerable"
+        android:textColor="@color/text_code"
+        android:textSize="13sp"
+        android:background="@color/bg_input"
+        android:padding="10dp"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/tv_dialog_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notice: Launching an external activity will transfer control outside IntentWatch. Use Safe Resolve to inspect handlers without launching."
+        android:textColor="@color/severity_moderate"
+        android:textSize="12sp"
+        android:background="@color/severity_moderate_bg"
+        android:padding="10dp"
+        android:layout_marginTop="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="18dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dialog_cancel"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="@color/text_muted"
+            android:layout_marginEnd="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dialog_simulate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Query Only"
+            android:backgroundTint="@color/accent_teal"
+            android:textColor="@color/bg_main"
+            android:layout_marginEnd="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dialog_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Launch"
+            android:backgroundTint="@color/severity_high"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>
